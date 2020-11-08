@@ -58,7 +58,7 @@ Yet another Python project template.
 
 (TODO replace) To install the package from PyPI:
 ```
-pip install python_project_tempalte
+pip install python_project_template
 ```
 
 ## Tests
