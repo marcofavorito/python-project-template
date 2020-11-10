@@ -37,7 +37,7 @@ import re
 import sys
 from pathlib import Path
 
-HEADER_REGEX = r"""(#!/usr/bin/env python3
+HEADER_REGEX_STR = r"""(#!/usr/bin/env python3
 )?# -\*- coding: utf-8 -\*-
 #
 # Copyright 2020 Marco Favorito
@@ -60,6 +60,7 @@ HEADER_REGEX = r"""(#!/usr/bin/env python3
 # along with python-project-template\.  If not, see <https://www\.gnu\.org/licenses/>\.
 #
 """
+HEADER_REGEX = re.compile(HEADER_REGEX_STR)
 
 
 def check_copyright(file: Path) -> bool:
@@ -73,18 +74,7 @@ def check_copyright(file: Path) -> bool:
     :return True if the file is compliant with the checks, False otherwise.
     """
     content = file.read_text()
-    header_regex = re.compile(HEADER_REGEX, re.MULTILINE)
-    return re.match(header_regex, content) is not None
-
-
-def parse_args():
-    """Parse arguments."""
-    import argparse  # pylint: disable=import-outside-toplevel
-
-    parser = argparse.ArgumentParser("check_copyright_notice")
-    parser.add_argument(
-        "--directory", type=str, default=".", help="The path to the repository root."
-    )
+    return re.match(HEADER_REGEX, content) is not None
 
 
 if __name__ == "__main__":
