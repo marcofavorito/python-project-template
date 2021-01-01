@@ -32,12 +32,14 @@ In particular:
 It is assumed the script is run from the repository root.
 """
 
+import argparse
 import itertools
 import re
 import sys
 from pathlib import Path
 
-HEADER_REGEX_STR = r"""(#!/usr/bin/env python3
+HEADER_REGEX = re.compile(
+    r"""(#!/usr/bin/env python3
 )?# -\*- coding: utf-8 -\*-
 #
 # Copyright 2020 Marco Favorito
@@ -59,8 +61,9 @@ HEADER_REGEX_STR = r"""(#!/usr/bin/env python3
 # You should have received a copy of the GNU Lesser General Public License
 # along with python-project-template\.  If not, see <https://www\.gnu\.org/licenses/>\.
 #
-"""
-HEADER_REGEX = re.compile(HEADER_REGEX_STR)
+""",
+    re.MULTILINE,
+)
 
 
 def check_copyright(file: Path) -> bool:
@@ -75,6 +78,14 @@ def check_copyright(file: Path) -> bool:
     """
     content = file.read_text()
     return re.match(HEADER_REGEX, content) is not None
+
+
+def parse_args():
+    """Parse arguments."""
+    parser = argparse.ArgumentParser("check_copyright_notice")
+    parser.add_argument(
+        "--directory", type=str, default=".", help="The path to the repository root."
+    )
 
 
 if __name__ == "__main__":
