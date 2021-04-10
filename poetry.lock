@@ -499,7 +499,7 @@ test = ["pytest (>=3.6.0)", "pytest-cov", "mock"]
 
 [[package]]
 name = "isort"
-version = "5.7.0"
+version = "5.8.0"
 description = "A Python utility / library to sort Python imports."
 category = "dev"
 optional = false
@@ -1684,7 +1684,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "cc2c940b3eccd42a8de7a4906229979412169d37cdd485d2a2cf9b15a5c592ad"
+content-hash = "10b690f93e4230d5d9683b34b9220c2c1c796223d8f58fe89c148f760eaab7e5"
 
 [metadata.files]
 appdirs = [
@@ -1964,8 +1964,8 @@ ipywidgets = [
     {file = "ipywidgets-7.6.2.tar.gz", hash = "sha256:bbb881ce18fb0cff4ac718f40c04709c7ac86a77abee149f1b447965ede86e36"},
 ]
 isort = [
-    {file = "isort-5.7.0-py3-none-any.whl", hash = "sha256:fff4f0c04e1825522ce6949973e83110a6e907750cd92d128b0d14aaaadbffdc"},
-    {file = "isort-5.7.0.tar.gz", hash = "sha256:c729845434366216d320e936b8ad6f9d681aab72dc7cbc2d51bedc3582f3ad1e"},
+    {file = "isort-5.8.0-py3-none-any.whl", hash = "sha256:2bb1680aad211e3c9944dbce1d4ba09a989f04e238296c87fe2139faa26d655d"},
+    {file = "isort-5.8.0.tar.gz", hash = "sha256:0a943902919f65c5684ac4e0154b1ad4fac6dcaa5d9f3426b732f1c8b5419be6"},
 ]
 jedi = [
     {file = "jedi-0.18.0-py2.py3-none-any.whl", hash = "sha256:18456d83f65f400ab0c2d3319e48520420ef43b23a086fdc05dff34132f0fb93"},
