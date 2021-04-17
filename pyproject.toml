@@ -2,7 +2,7 @@
 name = "python-project-template"
 version = "0.1.0"
 description = "A Python project template."
-authors = ["MarcoFavorito <marco.favorito@gmail.com>"]
+authors = ["Marco Favorito <marco.favorito@gmail.com>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
 homepage = "https://marcofavorito.me/python-project-template"

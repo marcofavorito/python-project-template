@@ -90,4 +90,4 @@ Copyright 2020 Marco Favorito
 
 ## Authors
 
-- [Marco Favorito](https://marcofavorito.github.io/)
+- [Marco Favorito](https://marcofavorito.me/)
