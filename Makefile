@@ -60,39 +60,39 @@ clean-test: ## remove test and coverage artifacts
 lint-all: black isort lint static bandit safety vulture pylint ## run all linters
 
 lint: ## check style with flake8
-	flake8 src/python_project_template tests scripts
+	flake8 python_project_template tests scripts
 
 static: ## static type checking with mypy
-	mypy src/python_project_template tests scripts
+	mypy python_project_template tests scripts
 
 isort: ## sort import statements with isort
-	isort src/python_project_template tests scripts
+	isort python_project_template tests scripts
 
 isort-check: ## check import statements order with isort
-	isort --check-only src/python_project_template tests scripts
+	isort --check-only python_project_template tests scripts
 
 black: ## apply black formatting
-	black src/python_project_template tests scripts
+	black python_project_template tests scripts
 
 black-check: ## check black formatting
-	black --check --verbose src/python_project_template tests scripts
+	black --check --verbose python_project_template tests scripts
 
 bandit: ## run bandit
-	bandit src/python_project_template tests scripts
+	bandit python_project_template tests scripts
 
 safety: ## run safety
 	safety
 
 pylint: ## run pylint
-	pylint src/python_project_template tests scripts
+	pylint python_project_template tests scripts
 
 vulture: ## run vulture
-	vulture src/python_project_template scripts/whitelist.py
+	vulture python_project_template scripts/whitelist.py
 
 test: ## run tests quickly with the default Python
 	pytest tests --doctest-modules \
-        src/python_project_template tests/ \
-        --cov=src/python_project_template \
+        python_project_template tests/ \
+        --cov=python_project_template \
         --cov-report=xml \
         --cov-report=html \
         --cov-report=term
@@ -101,7 +101,7 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source src/python_project_template -m pytest
+	coverage run --source python_project_template -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
