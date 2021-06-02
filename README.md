@@ -36,20 +36,6 @@
     <img alt="codecov" src="https://codecov.io/gh/marcofavorito/python-project-template/branch/master/graph/badge.svg?token=FG3ATGP5P5">
   </a>
 </p>
-<p align="center">
-  <a href="https://img.shields.io/badge/flake8-checked-blueviolet">
-    <img alt="" src="https://img.shields.io/badge/flake8-checked-blueviolet">
-  </a>
-  <a href="https://img.shields.io/badge/mypy-checked-blue">
-    <img alt="" src="https://img.shields.io/badge/mypy-checked-blue">
-  </a>
-  <a href="https://img.shields.io/badge/code%20style-black-black">
-    <img alt="black" src="https://img.shields.io/badge/code%20style-black-black" />
-  </a>
-  <a href="https://www.mkdocs.org/">
-    <img alt="" src="https://img.shields.io/badge/docs-mkdocs-9cf">
-  </a>
-</p>
 
 
 Yet another Python project template.
@@ -86,7 +72,7 @@ and then go to [http://localhost:8000](http://localhost:8000)
 
 python-project-template is released under the GNU Lesser General Public License v3.0 or later (LGPLv3+).
 
-Copyright 2020 Marco Favorito
+Copyright 2020-2021 Marco Favorito
 
 ## Authors
 
