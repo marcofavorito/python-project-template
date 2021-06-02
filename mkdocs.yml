@@ -17,8 +17,6 @@ plugins:
 
 theme:
   name: material
-  logo:
-    icon: code
   feature:
     tabs: true
 
