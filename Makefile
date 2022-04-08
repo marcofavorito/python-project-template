@@ -100,6 +100,25 @@ test: ## run tests quickly with the default Python
         --cov-report=html \
         --cov-report=term
 
+# how to use:
+#
+#     make test-sub tdir=$TDIR dir=$DIR
+#
+# where:
+# - TDIR is the path to the test module/directory (but without the leading "test_")
+# - DIR is the *dotted* path to the module/subpackage whose code coverage needs to be reported.
+#
+# For example, to run the loss function tests (in tests/test_losses)
+# and check the code coverage of the package python_project_template.some_package:
+#
+#     make test-sub tdir=some_package dir=python_project_template.some_package
+#
+.PHONY: test-sub
+test-sub:
+	pytest -rfE tests/test_$(tdir) --cov=python_project_template.$(dir) --cov-report=html --cov-report=xml --cov-report=term-missing --cov-report=term  --cov-config=.coveragerc
+	find . -name ".coverage*" -not -name ".coveragerc" -exec rm -fr "{}" \;
+
+
 test-all: ## run tests on every Python version with tox
 	tox
 
