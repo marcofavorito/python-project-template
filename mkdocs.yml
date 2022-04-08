@@ -13,6 +13,17 @@ plugins:
     #preamble: ""
     #enable_default_jupyter_cell_styling: false
     #enable_default_pandas_dataframe_styling: false
+- mkdocstrings:
+    default_handler: python
+    handlers:
+      python:
+        selection:
+          docstring_style: sphinx
+          filters:
+            - "!^_"  # exlude all members starting with _
+            - "^__init__$"  # but always include __init__ modules and methods
+    watch:
+      - python_project_template
 
 theme:
   name: material
