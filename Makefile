@@ -81,7 +81,7 @@ bandit: ## run bandit
 	bandit python_project_template tests scripts
 
 safety: ## run safety
-	safety
+	safety check
 
 pylint: ## run pylint
 	pylint python_project_template tests scripts
