@@ -982,7 +982,7 @@ mkdocs = ">=1.1"
 
 [[package]]
 name = "mkdocs-bibtex"
-version = "2.6.0"
+version = "2.8.0"
 description = "An MkDocs plugin that enables managing citations with BibTex"
 category = "dev"
 optional = false
@@ -2070,7 +2070,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "81e8e70721f3656dedf1ea2af0ad8673a71e77a1494dfea3b710ce574a62a253"
+content-hash = "7d099f24ef0ee4ad1a63eb2f4dfc037dcc06d1ae6a1853c74c4bec5c650acae6"
 
 [metadata.files]
 appnope = [
@@ -2614,7 +2614,7 @@ mkdocs-autorefs = [
     {file = "mkdocs_autorefs-0.4.1-py3-none-any.whl", hash = "sha256:a2248a9501b29dc0cc8ba4c09f4f47ff121945f6ce33d760f145d6f89d313f5b"},
 ]
 mkdocs-bibtex = [
-    {file = "mkdocs-bibtex-2.6.0.tar.gz", hash = "sha256:735e501662b460053670add0b712c255b07f451e1f2232c7a6b1ab14d4740eed"},
+    {file = "mkdocs-bibtex-2.8.0.tar.gz", hash = "sha256:bed5f223dd89e06f952660e60a8d5a25b802f9e24eab45849a8aa5bc7c1bba63"},
 ]
 mkdocs-material = [
     {file = "mkdocs-material-8.2.15.tar.gz", hash = "sha256:93b57e53733051431cc83216446e774bdf08bf516a6251ff2f24974f45f98149"},
