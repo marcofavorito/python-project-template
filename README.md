@@ -51,7 +51,7 @@ pip install python_project_template
 
 To run tests: `tox`
 
-To run only the code tests: `tox -e py3.7`
+To run only the code tests: `tox -e py3.10`
 
 To run only the linters: 
 - `tox -e flake8`
