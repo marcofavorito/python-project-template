@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
 #
+# This file is part of python-project-template.
 # Copyright 2022 Marco Favorito
 #
-# ------------------------------
-#
-# This file is part of python-project-template.
-#
 # python-project-template is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Lesser General Public License as published by
+# it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
 # python-project-template is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Lesser General Public License for more details.
+# GNU General Public License for more details.
 #
-# You should have received a copy of the GNU Lesser General Public License
+# You should have received a copy of the GNU General Public License
 # along with python-project-template.  If not, see <https://www.gnu.org/licenses/>.
 #
 
@@ -40,26 +37,22 @@ from pathlib import Path
 HEADER_REGEX = re.compile(
     r"""(#!/usr/bin/env python3
 )?#
+# This file is part of python-project-template\.
 # Copyright 2022 Marco Favorito
 #
-# ------------------------------
-#
-# This file is part of python-project-template\.
-#
 # python-project-template is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Lesser General Public License as published by
+# it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # \(at your option\) any later version\.
 #
 # python-project-template is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE\.  See the
-# GNU Lesser General Public License for more details\.
+# GNU General Public License for more details\.
 #
-# You should have received a copy of the GNU Lesser General Public License
+# You should have received a copy of the GNU General Public License
 # along with python-project-template\.  If not, see <https://www\.gnu\.org/licenses/>\.
-#
-""",
+#""",
     re.MULTILINE,
 )
 
@@ -91,7 +84,7 @@ if __name__ == "__main__":
     python_files = filter(
         lambda x: x not in exclude_files,
         itertools.chain(
-            Path("python-project-template").glob("**/*.py"),
+            Path("python_project_template").glob("**/*.py"),
             Path("tests").glob("**/*.py"),
             Path("scripts").glob("**/*.py"),
         ),

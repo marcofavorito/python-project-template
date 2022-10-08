@@ -70,7 +70,7 @@ and then go to [http://localhost:8000](http://localhost:8000)
 
 ## License
 
-python-project-template is released under the GNU Lesser General Public License v3.0 or later (LGPLv3+).
+python-project-template is released under the GNU General Public License v3.0 or later (GPLv3+).
 
 Copyright 2022 Marco Favorito
 
