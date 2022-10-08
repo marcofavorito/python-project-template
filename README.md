@@ -47,6 +47,20 @@ Yet another Python project template.
 pip install python_project_template
 ```
 
+## Development
+
+Clone the repository:
+```
+git clone https://github.com/marcofavorito/python-project-template
+cd python-project-template
+```
+
+Set up virtual environment using [Poetry](https://python-poetry.org/):
+```
+poetry shell
+poetry install
+```
+
 ## Tests
 
 To run tests: `tox`
