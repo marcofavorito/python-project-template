@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-project-template"
-version = "0.1.0"
+version = "0.2.0"
 description = "A Python project template."
 authors = ["Marco Favorito <marco.favorito@gmail.com>"]
 license = "GPL-3.0-or-later"
@@ -13,11 +13,17 @@ classifiers = [
     'Development Status :: 2 - Pre-Alpha',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+    'Operating System :: Unix',
+    'Operating System :: POSIX',
+    'Operating System :: Microsoft :: Windows',
     'Natural Language :: English',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: Implementation :: CPython',
 ]
 #packages = []
 include = []
@@ -32,40 +38,203 @@ include = []
 
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
+python = ">=3.8,<3.13"
 
-[tool.poetry.dev-dependencies]
-pytest = "^7.1.1"
-pytest-cov = "^3.0.0"
-pytest-randomly = "^3.5.0"
-tox = "^3.23.0"
-codecov = "^2.1.11"
-black = "^22.3.0"
-mypy = "^0.942"
-isort = "^5.9.1"
-flake8 = "^4.0.1"
-flake8-docstrings = "^1.6.0"
-flake8-bugbear = "^22.3.23"
-flake8-eradicate = "^1.2.0"
-flake8-isort = "^4.1.1"
-pylint = "^2.13.5"
-safety = "^1.10.1"
-vulture = "^2.1"
-bandit = "^1.7.0"
-mkdocs = "^1.3.0"
-markdown_include = "^0.6.0"
-mkdocs-material = "^8.2.8"
-ipython = "^8.2.0"
-jupyter = "^1.0.0"
-mknotebooks = "^0.7.0"
-markdown = "3.3.6"
-twine = "^4.0.0"
-hypothesis = "^6.14.0"
-hypothesis-pytest = "^0.19.0"
-darglint = ">=1.8.0"
-mkdocs-bibtex = "^2.0.3"
-mkdocstrings = "^0.18.1"
+[tool.poetry.group.dev.dependencies]
+bandit = "==1.7.6"
+codecov = "==2.1.13"
+hypothesis = "==6.92.2"
+hypothesis-pytest = "==0.19.0"
+ipython = "==8.12.0"
+jupyter = "==1.0.0"
+markdown = "==3.5.1"
+markdown-include = "==0.8.1"
+mkdocs = "==1.5.3"
+mkdocs-autorefs = "==0.5.0"
+mkdocs-bibtex = "==2.11.0"
+mkdocs-material = "==9.5.3"
+mkdocstrings = "==0.24.0"
+mknotebooks = "==0.8.0"
+mypy = "==1.8.0"
+pymdown-extensions = "==10.7"
+pytest = "==7.4.4"
+pytest-checkipdb = "==1.1.1"
+pytest-cov = "==4.1.0"
+pytest-randomly = "==3.15.0"
+ruff = "==0.1.9"
+safety = "==2.4.0b2"
+tox = "==4.11.4"
+twine = "==4.0.2"
+vulture = "==2.10"
+pre-commit = "3.5.0"
+
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+##################################################
+# Mypy configuration
+##################################################
+
+[tool.mypy]
+python_version = "3.8"
+strict_optional = true
+plugins = [
+#    "numpy.typing.mypy_plugin"
+]
+files = [
+    "python_project_template",
+    "tests",
+    "scripts",
+]
+#to add other directories: "other/dir.*|..."
+exclude = [
+    "scripts/whitelists*"
+]
+disallow_untyped_defs = true
+
+# mypy per-module options:
+#
+#[[tool.mypy.overrides]]
+#module = "mycode.foo.*"
+#disallow_untyped_defs = true
+#
+#[[tool.mypy.overrides]]
+#module = "mycode.bar"
+#warn_return_any = false
+#
+#[[tool.mypy.overrides]]
+#module = [
+#    "somelibrary",
+#    "some_other_library"
+#]
+#ignore_missing_imports = true
+
+##################################################
+# Ruff configuration
+##################################################
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+# Assume Python 3.8
+target-version = "py38"
+
+include = ["python_project_template/**/*.py", "scripts/**/*.py", "tests/**/*.py"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["COM812", "D203", "D213", "ISC001"]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/check_copyright.py" = ["T201"]
+"scripts/whitelist.py" = ["D100", "INP001"]
+
+
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+##################################################
+# Pytest configuration
+##################################################
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "-ra -q",
+    "--import-mode=importlib",
+]
+testpaths = [
+    "tests",
+]
+log_cli = 1
+log_cli_level = "DEBUG"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+
+##################################################
+# Coverage configuration
+##################################################
+[tool.coverage.run]
+branch = true
+omit = ["*/.tox/*"]
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_also = [
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+]
+
+ignore_errors = true
+
+exclude_lines = [
+    "pragma: no cover",
+    "pragma: nocover"
+]
+
+[tool.coverage.html]
+directory = "htmlcov"

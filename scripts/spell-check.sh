@@ -25,5 +25,3 @@ elif [ "$only_check_option" == "--only-check" ]; then
 else
   echo "Usage: ./spell-check.sh [--only-check]"
 fi
-
-

@@ -65,7 +65,7 @@ poetry install
 
 To run tests: `tox`
 
-To run only the code tests: `tox -e py3.10`
+To run only the code tests: `tox -e py311`
 
 To run only the linters: 
 - `tox -e flake8`
@@ -86,7 +86,7 @@ and then go to [http://localhost:8000](http://localhost:8000)
 
 python-project-template is released under the GNU General Public License v3.0 or later (GPLv3+).
 
-Copyright 2022 Marco Favorito
+Copyright 2024 Marco Favorito
 
 ## Authors
 

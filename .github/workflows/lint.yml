@@ -3,7 +3,6 @@ name: lint
 on:
   push:
     branches:
-      - develop
       - main
   pull_request:
 
@@ -15,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: ["3.10"]
+        python-version: [3.8]
 
     timeout-minutes: 30
 
@@ -25,21 +24,15 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
-      run:  pip install tox
-    - name: Pylint
-      run: tox -e pylint
+      run:  pip install poetry tox
+    - name: Check Poetry lock file
+      run: make poetry-lock-check
     - name: Code style check
       run: |
-        tox -e black-check
-        tox -e isort-check
-        tox -e flake8
-        tox -e vulture
-        tox -e darglint
+        tox -e ruff-format-check,ruff-check,vulture
     - name: Static type check
       run: tox -e mypy
     - name: Check copyright
       run: tox -e check-copyright
     - name: Misc checks
-      run: |
-        tox -e bandit
-        tox -e safety
+      run: tox -e bandit,safety

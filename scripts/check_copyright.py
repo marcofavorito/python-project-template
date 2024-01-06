@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-#
 # This file is part of python-project-template.
-# Copyright 2022 Marco Favorito
+# Copyright 2024 Marco Favorito
 #
 # python-project-template is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,8 +16,7 @@
 # along with python-project-template.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-"""
-This script checks that all the Python files of the repository have the copyright notice.
+"""Check that all the Python files of the repository have the copyright notice.
 
 In particular:
 - (optional) the Python shebang
@@ -28,17 +26,16 @@ In particular:
 It is assumed the script is run from the repository root.
 """
 
-import argparse
 import itertools
 import re
 import sys
 from pathlib import Path
 
+COPYRIGHT_NOTICE = "Copyright 2024 Marco Favorito"
 HEADER_REGEX = re.compile(
-    r"""(#!/usr/bin/env python3
-)?#
-# This file is part of python-project-template\.
-# Copyright 2022 Marco Favorito
+    rf"""(#!/usr/bin/env python3
+)?# This file is part of python-project-template\.
+# {COPYRIGHT_NOTICE}
 #
 # python-project-template is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -58,8 +55,7 @@ HEADER_REGEX = re.compile(
 
 
 def check_copyright(file: Path) -> bool:
-    """
-    Given a file, check if the header stuff is in place.
+    """Given a file, check if the header stuff is in place.
 
     Return True if the files has the encoding header and the copyright notice,
     optionally prefixed by the shebang. Return False otherwise.
@@ -71,15 +67,25 @@ def check_copyright(file: Path) -> bool:
     return re.match(HEADER_REGEX, content) is not None
 
 
-def parse_args():
-    """Parse arguments."""
-    parser = argparse.ArgumentParser("check_copyright_notice")
-    parser.add_argument(
-        "--directory", type=str, default=".", help="The path to the repository root."
-    )
+def check_copyright_in_readme() -> bool:
+    """Check if the README.md contains the right copyright notice."""
+    readme_filepath = Path("README.md").resolve()
+    if not readme_filepath.exists():
+        msg = f"README file {readme_filepath} does not exist"
+        raise ValueError(msg)
+    readme_content = readme_filepath.read_text()
+    matches = re.findall("Copyright .*", readme_content)
+    if len(matches) == 0:
+        return False
+    for match in matches:
+        if match != COPYRIGHT_NOTICE:
+            return False
+    print("README is OK.")
+    return True
 
 
-if __name__ == "__main__":
+def check_copyright_headers() -> bool:
+    """Check copyright headers are correct."""
     exclude_files = {Path("scripts", "whitelist.py")}
     python_files = filter(
         lambda x: x not in exclude_files,
@@ -90,12 +96,27 @@ if __name__ == "__main__":
         ),
     )
 
-    bad_files = [filepath for filepath in python_files if not check_copyright(filepath)]
+    bad_files = []
+    for filepath in python_files:
+        print(f"Checking file {filepath}...", end=" ")
+        result = check_copyright(filepath)
+        if result:
+            print("OK")
+        else:
+            print("FAIL")
+            bad_files.append(filepath)
 
     if len(bad_files) > 0:
         print("The following files are not well formatted:")
         print("\n".join(map(str, bad_files)))
+        return False
+    return True
+
+
+if __name__ == "__main__":
+    result: bool = check_copyright_headers()
+    result = result and check_copyright_in_readme()
+    if not result:
         sys.exit(1)
-    else:
-        print("OK")
-        sys.exit(0)
+    print("All checks have passed!")
+    sys.exit(0)

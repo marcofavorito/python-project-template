@@ -1,8 +1,0 @@
-[run]
-omit =
-    */.tox/*
-
-[report]
-exclude_lines =
-    pragma: no cover
-    pragma: nocover
