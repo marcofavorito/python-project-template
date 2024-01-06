@@ -21,6 +21,7 @@
   <a href="https://github.com/marcofavorito/python-project-template/blob/master/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/marcofavorito/python-project-template">
   </a>
+  <a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit" alt="pre-commit" style="max-width:100%;"></a>
 </p>
 <p align="center">
   <a href="">
