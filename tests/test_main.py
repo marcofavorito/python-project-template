@@ -1,6 +1,5 @@
-#
 # This file is part of python-project-template.
-# Copyright 2022 Marco Favorito
+# Copyright 2024 Marco Favorito
 #
 # python-project-template is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,5 +18,5 @@
 """Main tests."""
 
 
-def test_example():
+def test_example() -> None:
     """Test example."""

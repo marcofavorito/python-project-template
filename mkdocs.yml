@@ -22,8 +22,9 @@ plugins:
           filters:
             - "!^_"  # exlude all members starting with _
             - "^__init__$"  # but always include __init__ modules and methods
-    watch:
-      - python_project_template
+
+watch:
+  - python_project_template
 
 theme:
   name: material
