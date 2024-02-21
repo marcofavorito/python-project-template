@@ -79,7 +79,7 @@ ruff-check: ## check ruff linter rules
 
 .PHONY: bandit
 bandit: ## run bandit
-	bandit -c .bandit.yaml -r python_project_template tests scripts examples
+	bandit -c .bandit.yml -r python_project_template tests scripts examples
 
 .PHONY: safety
 safety: ## run safety
