@@ -30,7 +30,7 @@ jobs:
       run: make poetry-lock-check
     - name: Code style check
       run: |
-        tox -e ruff-format-check,ruff-check,vulture
+        tox -e ruff-format,ruff-check,vulture
     - name: Static type check
       run: tox -e mypy
     - name: Check copyright
