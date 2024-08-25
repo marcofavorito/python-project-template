@@ -18,7 +18,6 @@ classifiers = [
     'Operating System :: Microsoft :: Windows',
     'Natural Language :: English',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
@@ -38,7 +37,7 @@ include = []
 
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.13"
+python = ">=3.9,<3.13"
 
 [tool.poetry.group.dev.dependencies]
 bandit = "==1.7.6"
@@ -79,7 +78,7 @@ build-backend = "poetry.core.masonry.api"
 ##################################################
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.9"
 strict_optional = true
 plugins = [
 #    "numpy.typing.mypy_plugin"
@@ -150,8 +149,8 @@ exclude = [
 line-length = 88
 indent-width = 4
 
-# Assume Python 3.8
-target-version = "py38"
+# Assume Python 3.9
+target-version = "py39"
 
 include = ["python_project_template/**/*.py", "scripts/**/*.py", "tests/**/*.py"]
 
