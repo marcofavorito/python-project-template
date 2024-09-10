@@ -167,6 +167,7 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.ruff.lint.per-file-ignores]
 "scripts/check_copyright.py" = ["T201"]
+"scripts/update-deps.py" = ["T201"]
 "scripts/whitelist.py" = ["D100", "INP001"]
 
 
