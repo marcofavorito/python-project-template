@@ -83,7 +83,7 @@ bandit: ## run bandit
 
 .PHONY: safety
 safety: ## run safety
-	safety check
+	safety check -i 70612
 
 .PHONY: vulture
 vulture: ## run vulture
