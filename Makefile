@@ -92,7 +92,6 @@ vulture: ## run vulture
 .PHONY: test
 test: ## run tests quickly with the default Python
 	pytest tests python_project_template \
-        --doctest-modules \
         --cov=python_project_template \
         --cov-report=xml \
         --cov-report=html \

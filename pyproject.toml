@@ -193,6 +193,7 @@ minversion = "6.0"
 addopts = [
     "-ra -q",
     "--import-mode=importlib",
+    "--doctest-modules"
 ]
 testpaths = [
     "tests",
